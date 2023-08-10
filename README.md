@@ -9,6 +9,7 @@ The Enterprise Connect Backend is the backend component of a project aimed at pr
   - [Installation](#installation)
   - [Configuration](#configuration)
 - [Usage](#usage)
+  - [Running Scripts](#running-scripts)
 - [API Endpoints](#api-endpoints)
 
 ## Getting Started
@@ -52,7 +53,7 @@ The Enterprise Connect Backend is the backend component of a project aimed at pr
    DISTANT_DB_URL=your-database-url (if you use it instead of a local database)
    ```
 
-   If you've access to my distant database, please fill DISTANT_DB_URL instead of the others env settings.
+   If you have access to my distant database, please fill `DISTANT_DB_URL` instead of the other environment settings.
 
 ## Usage
 
@@ -63,6 +64,21 @@ yarn dev
 ```
 
 The server will start on the specified port (default: 3000).
+
+### Running Scripts
+
+- Use the script `create_companies_table.js` to set up the database schema with the command:
+  ```bash
+  npx knex migrate:up
+  ```
+- To revert the database schema and empty the database, you can use:
+  ```bash
+  npx knex migrate:down
+  ```
+- To import data, execute the script `importData.js` using the command:
+  ```bash
+  node scripts/importData.js
+  ```
 
 ## API Endpoints
 
