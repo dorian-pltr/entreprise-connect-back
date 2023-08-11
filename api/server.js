@@ -43,3 +43,20 @@ app.get('/api/entreprises', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' })
   }
 })
+
+app.get('/api/entreprise/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const entreprise = await db('entreprises').where('id', id).first()
+
+    if (!entreprise) {
+      return res.status(404).json({ error: 'Entreprise not found' })
+    }
+
+    res.json(entreprise)
+  } catch (error) {
+    console.error('Error fetching entreprise:', error)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+})
