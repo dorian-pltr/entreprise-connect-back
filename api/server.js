@@ -22,7 +22,7 @@ app.get('/api/entreprises', async (req, res) => {
     let query = db('entreprises')
 
     if (name) {
-      query = query.where('name', 'like', `%${name}%`)
+      query = query.where('name', 'like', `%${name.toUpperCase()}%`)
     }
 
     const totalEntreprisesQuery = query.clone().count('* as count')
