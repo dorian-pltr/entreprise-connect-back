@@ -38,7 +38,10 @@ async function importData() {
         await db('entreprises')
           .insert({
             name: entreprise.nom_complet,
-            logo: await getRandomImage(),
+            logo:
+              entreprise.nom_complet === 'KABOLT'
+                ? 'https://www.lovebuddies.in/wp-content/uploads/2020/07/lovebuddies-new-logo-2019-symbol-red-500px.png'
+                : await getRandomImage(),
             address: entreprise.siege.adresse,
             latitude: entreprise.siege.latitude,
             longitude: entreprise.siege.longitude,
