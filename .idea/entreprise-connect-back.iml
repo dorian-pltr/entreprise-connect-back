@@ -9,6 +9,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="entreprise-connect-front" />
+    <orderEntry type="module" module-name="entreprise-connect-front-js" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="c87833c5-0838-446d-a61c-6d05697c85fd" />

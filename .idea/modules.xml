@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/entreprise-connect-back.iml" filepath="$PROJECT_DIR$/.idea/entreprise-connect-back.iml" />
       <module fileurl="file://$PROJECT_DIR$/../entreprise-connect-front/.idea/entreprise-connect-front.iml" filepath="$PROJECT_DIR$/../entreprise-connect-front/.idea/entreprise-connect-front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../entreprise-connect-front-js/.idea/entreprise-connect-front-js.iml" filepath="$PROJECT_DIR$/../entreprise-connect-front-js/.idea/entreprise-connect-front-js.iml" />
     </modules>
   </component>
 </project>
