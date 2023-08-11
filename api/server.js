@@ -1,5 +1,4 @@
 const express = require('express')
-const cors = require('cors')
 const knex = require('knex')
 const knexConfig = require('../knexfile')
 const db = knex(knexConfig.development)
@@ -7,7 +6,15 @@ const db = knex(knexConfig.development)
 const app = express()
 const port = process.env.PORT || 3000
 
-app.use(cors())
+require('dotenv').config()
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL || 'http://localhost:8080');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 app.listen(port, '0.0.0.0', function () {
   console.log(`Server is running on port ${port}`)
