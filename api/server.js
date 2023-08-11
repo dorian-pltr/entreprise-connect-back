@@ -16,27 +16,27 @@ app.get('/api/entreprises', async (req, res) => {
     const pageSize = 10
     const offset = (page - 1) * pageSize || 0
 
-    let query = db('companies')
+    let query = db('entreprises')
 
     if (name) {
       query = query.where('name', 'like', `%${name}%`)
     }
 
-    const totalCompaniesQuery = query.clone().count('* as count')
-    const totalCompanies = await totalCompaniesQuery.first()
+    const totalEntreprisesQuery = query.clone().count('* as count')
+    const totalEntreprises = await totalEntreprisesQuery.first()
 
-    const companiesQuery = query.select('*').limit(pageSize).offset(offset)
-    const companies = await companiesQuery
+    const entreprisesQuery = query.select('*').limit(pageSize).offset(offset)
+    const entreprises = await entreprisesQuery
 
     res.json({
-      companies,
+      entreprises,
       page: parseInt(page) || 1,
-      totalPages: Math.ceil(totalCompanies.count / pageSize),
+      totalPages: Math.ceil(totalEntreprises.count / pageSize),
       pageSize: pageSize,
-      totalCompanies: parseInt(totalCompanies.count),
+      totalEntreprises: parseInt(totalEntreprises.count),
     })
   } catch (error) {
-    console.error('Error fetching companies:', error)
+    console.error('Error fetching entreprises:', error)
     res.status(500).json({ error: 'Internal server error' })
   }
 })

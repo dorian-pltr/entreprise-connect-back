@@ -1,6 +1,6 @@
 # Enterprise Connect Backend
 
-The Enterprise Connect Backend is the backend component of a project aimed at providing a list of companies referenced in a government API. It uses Node.js and Express for the backend and stores data in a PostgreSQL database, accessed using Knex.
+The Enterprise Connect Backend is the backend component of a project aimed at providing a list of entreprises referenced in a government API. It uses Node.js and Express for the backend and stores data in a PostgreSQL database, accessed using Knex.
 
 ## Table of Contents
 
@@ -67,7 +67,7 @@ The server will start on the specified port (default: 3000).
 
 ### Running Scripts
 
-- Use the script `create_companies_table.js` to set up the database schema with the command:
+- Use the script `createEntreprisesTable.js` to set up the database schema with the command:
   ```bash
   npx knex migrate:up
   ```
@@ -82,6 +82,6 @@ The server will start on the specified port (default: 3000).
 
 ## API Endpoints
 
-- `GET /api/entreprises`: Retrieve a list of companies. You can use query parameters to filter results:
-    - `name`: Search for companies by name.
+- `GET /api/entreprises`: Retrieve a list of entreprises. You can use query parameters to filter results:
+    - `name`: Search for entreprises by name.
     - `page`: Specify the page number for pagination.

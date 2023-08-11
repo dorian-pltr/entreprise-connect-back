@@ -13,20 +13,20 @@ async function importData() {
       const response = await axios.get(
         `https://recherche-entreprises.api.gouv.fr/search?code_postal=69001&page=${currentPage}&per_page=${pageSize}`
       )
-      const companies = response.data.results
+      const entreprises = response.data.results
       totalPages = response.data.total_pages
 
-      for (const company of companies) {
-        await db('companies')
+      for (const entreprise of entreprises) {
+        await db('entreprises')
           .insert({
-            name: company.nom_complet,
-            address: company.siege.adresse,
-            latitude: company.siege.latitude,
-            longitude: company.siege.longitude,
+            name: entreprise.nom_complet,
+            address: entreprise.siege.adresse,
+            latitude: entreprise.siege.latitude,
+            longitude: entreprise.siege.longitude,
           })
           .onConflict('name')
           .merge()
-        console.log(`Data for ${company.nom_complet} successfully imported`)
+        console.log(`Data for ${entreprise.nom_complet} successfully imported`)
       }
       currentPage++
     }
