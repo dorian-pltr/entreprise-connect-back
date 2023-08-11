@@ -4,9 +4,9 @@ const knexConfig = require('../knexfile')
 const db = knex(knexConfig.development)
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', function () {
   console.log(`Server is running on port ${port}`)
 })
 
