@@ -2,6 +2,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('entreprises', function (table) {
     table.increments('id').primary()
     table.string('name').notNullable().unique()
+    table.string('logo')
     table.string('address')
     table.float('latitude')
     table.float('longitude')
